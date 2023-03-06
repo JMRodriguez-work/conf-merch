@@ -3,7 +3,7 @@ import './Success.css';
 
 const Success = () => {
   return (
-    <div>Success</div>
+    <div className='Success'>Success</div>
   )
 }
 

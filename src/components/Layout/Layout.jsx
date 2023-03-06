@@ -5,7 +5,7 @@ import { Header, Footer } from '../index'
 
 const Layout = () => {
   return (
-    <div>
+    <div className='Main'>
         <Header />
         <Outlet />
         <Footer />

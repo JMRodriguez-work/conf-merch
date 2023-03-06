@@ -3,7 +3,7 @@ import './Payment.css';
 
 const Payment = () => {
   return (
-    <div>Payment</div>
+    <div className='Payment'>Payment</div>
   )
 }
 
