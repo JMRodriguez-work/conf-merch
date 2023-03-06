@@ -90,3 +90,7 @@ input {
   display: block;
   outline: none;
 }
+
+.Information-total {
+  margin-top: 30px;
+}

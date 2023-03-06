@@ -18,13 +18,24 @@ const useInitialState = () => {
     });
   };
 
-  const totalPriceCart = state.cart.reduce((acum, current) => acum + current.price, 0);
+  const totalPriceCart = state.cart.reduce(
+    (acum, current) => acum + current.price,
+    0
+  );
+
+  const addToBuyer = (data) => {
+    setState({
+      ...state,
+      buyer: [...state.buyer, data],
+    });
+  };
 
   return {
     state,
     addToCart,
-    removeFromCart, 
+    removeFromCart,
     totalPriceCart,
+    addToBuyer
   };
 };
 
