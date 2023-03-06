@@ -5,7 +5,7 @@ import { Products } from '../../components/index'
 
 const Home = () => {
   return (
-    <Products products={initialState.products} />
+    <Products />
   )
 }
 

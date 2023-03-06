@@ -1,19 +1,20 @@
 import React from "react";
 import "../Products/Products.css";
 
-const Product = ({ product: { image, description, price, id, title } }) => {
-  console.log(image);
+const Product = ({ product, handleAddToCart }) => {
   return (
     <div className="Products-item">
-      <img src={image} alt={title} />
+      <img src={product.image} alt={product.title} />
       <div className="Products-item-info">
         <h2>
-          {title}
-          <span>${price}</span>
+          {product.title}
+          <span>${product.price}</span>
         </h2>
-        <p>{description}</p>
+        <p>{product.description}</p>
       </div>
-      <button type="button">Comprar</button>
+      <button type="button" onClick={() => handleAddToCart(product)}>
+        Comprar
+      </button>
     </div>
   );
 };

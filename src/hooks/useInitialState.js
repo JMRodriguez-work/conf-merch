@@ -11,17 +11,20 @@ const useInitialState = () => {
     });
   };
 
-  const removeFromCart = (payload) => {
+  const removeFromCart = (indexToRemove) => {
     setState({
       ...state,
-      cart: state.cart.filter((item) => item.id !== payload.id),
+      cart: state.cart.filter((_, index) => index !== indexToRemove),
     });
   };
+
+  const totalPriceCart = state.cart.reduce((acum, current) => acum + current.price, 0);
 
   return {
     state,
     addToCart,
-    removeFromCart,
+    removeFromCart, 
+    totalPriceCart,
   };
 };
 
