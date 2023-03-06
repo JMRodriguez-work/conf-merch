@@ -10,6 +10,7 @@ import {
   Success,
 } from "../containers/index";
 import { Layout } from "../components/index";
+import AppProvider from "../context/AppContext";
 
 function App() {
   const router = createBrowserRouter([
@@ -44,7 +45,9 @@ function App() {
 
   return (
     <div className="App">
-      <RouterProvider router={router}></RouterProvider>
+      <AppProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </AppProvider>
     </div>
   );
 }
