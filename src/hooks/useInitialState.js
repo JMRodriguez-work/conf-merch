@@ -30,12 +30,20 @@ const useInitialState = () => {
     });
   };
 
+  const addNewOrder = (order) => {
+    setState({
+      ...state,
+      orders: [...state.orders, order],
+    });
+  };
+
   return {
     state,
     addToCart,
     removeFromCart,
     totalPriceCart,
-    addToBuyer
+    addToBuyer,
+    addNewOrder
   };
 };
 
