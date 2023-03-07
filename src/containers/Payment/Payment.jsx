@@ -5,6 +5,36 @@ import { AppContext } from "../../context/AppContext";
 import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
+  const navigate = useNavigate()
+  const {
+    state: {cart, buyer},
+    totalPriceCart,
+    addNewOrder
+  } = useContext(AppContext)
+  
+  const paypalOptions = {
+    clientId: 'TU Client ID',
+    intent: 'capture',
+    currency: 'USD'
+  }
+
+  const buttonStyles = {
+    layout: 'vertical',
+    shape: 'rect'
+  }
+  const handlePaymentSuccess = (data) => {
+    console.log(data);
+    if (data.status === 'COMPLETED') {
+      const newOrder = {
+        buyer,
+        product: cart,
+        payment: data
+      }
+      addNewOrder(newOrder);
+      navigate('/checkout/success');
+    }
+  }
+
   return (
     <div className="Payment">
       <div className="Payment-content">
